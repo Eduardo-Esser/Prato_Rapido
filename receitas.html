@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Receitas — Prato Rápido</title>
+    <meta
+      name="description"
+      content="Todas as receitas do Prato Rápido, organizadas por categoria, com tempo de preparo, dificuldade, ingredientes e modo de preparo."
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/global.css"
+    />
+  </head>
+  <body>
+    <a
+      class="skip-link"
+      href="#conteudo"
+      >Pular para o conteúdo</a
+    >
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          href="index.html"
+          class="logo"
+          >Prato Rápido</a
+        >
+        <nav
+          class="main-nav"
+          aria-label="Principal"
+        >
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li>
+              <a
+                href="receitas.html"
+                aria-current="page"
+                >Receitas</a
+              >
+            </li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section
+        class="page-head"
+        aria-labelledby="receitas-titulo"
+      >
+        <div class="container">
+          <h1 id="receitas-titulo">Todas as receitas</h1>
+          <p>
+            Do café da manhã à sobremesa. Abra “Ver ingredientes e preparo” para
+            cozinhar.
+          </p>
+        </div>
+      </section>
+
+      <nav
+        class="category-nav"
+        aria-label="Categorias de receitas"
+      >
+        <div class="container">
+          <ul class="chips">
+            <li><a href="#cafe">Café da manhã</a></li>
+            <li><a href="#principais">Pratos principais</a></li>
+            <li><a href="#lanches">Lanches</a></li>
+            <li><a href="#sobremesas">Sobremesas</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <section
+        class="category-block"
+        id="cafe"
+        aria-labelledby="cafe-titulo"
+      >
+        <div class="container">
+          <h2 id="cafe-titulo">Café da manhã</h2>
+          <ul class="cards">
+            <li class="card">
+              <article
+                id="panqueca-banana"
+                data-categoria="cafe"
+                data-tempo="10"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/panqueca-banana.jpg"
+                    alt="Panqueca de banana"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Panqueca de banana</h3>
+                  <p>
+                    Três ingredientes, uma frigideira e nenhuma farinha de
+                    trigo.
+                  </p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>1 banana madura</li>
+                        <li>2 ovos</li>
+                        <li>4 colheres (sopa) de aveia em flocos</li>
+                        <li>1 pitada de canela (opcional)</li>
+                        <li>Óleo ou manteiga para untar</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Amasse a banana com um garfo até virar um purê.</li>
+                        <li>Misture os ovos, a aveia e a canela.</li>
+                        <li>Unte a frigideira e aqueça em fogo baixo.</li>
+                        <li>
+                          Coloque uma concha da massa e deixe cerca de 2 minutos
+                          de cada lado.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                id="ovos-mexidos"
+                data-categoria="cafe"
+                data-tempo="8"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/ovos-mexidos.jpg"
+                    alt="Ovos mexidos cremosos"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>8</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Ovos mexidos cremosos</h3>
+                  <p>O segredo é o fogo baixo e mexer devagar.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 ovos</li>
+                        <li>1 colher (chá) de manteiga</li>
+                        <li>1 colher (sopa) de leite</li>
+                        <li>Sal a gosto</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Bata os ovos com o leite e o sal.</li>
+                        <li>Derreta a manteiga em fogo baixo.</li>
+                        <li>
+                          Despeje os ovos e mexa devagar com uma colher de pau.
+                        </li>
+                        <li>
+                          Retire do fogo quando ainda estiverem úmidos: eles
+                          terminam de cozinhar no calor da panela.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="category-block"
+        id="principais"
+        aria-labelledby="principais-titulo"
+      >
+        <div class="container">
+          <h2 id="principais-titulo">Pratos principais</h2>
+          <ul class="cards">
+            <li class="card">
+              <article
+                id="macarrao-alho-oleo"
+                data-categoria="principais"
+                data-tempo="20"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/macarrao-alho-oleo.jpg"
+                    alt="Macarrão alho e óleo"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>20</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Macarrão alho e óleo</h3>
+                  <p>
+                    O clássico de geladeira vazia, pronto no tempo de ferver a
+                    água.
+                  </p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>200 g de espaguete</li>
+                        <li>4 dentes de alho fatiados</li>
+                        <li>4 colheres (sopa) de azeite</li>
+                        <li>Sal a gosto</li>
+                        <li>Pimenta em flocos e salsinha (opcional)</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Cozinhe o macarrão em água com sal até ficar al dente.
+                        </li>
+                        <li>
+                          Reserve meia xícara da água do cozimento e escorra.
+                        </li>
+                        <li>
+                          Em fogo baixo, doure o alho no azeite sem deixar
+                          queimar.
+                        </li>
+                        <li>
+                          Junte o macarrão e um pouco da água reservada e
+                          misture bem.
+                        </li>
+                        <li>Finalize com pimenta e salsinha.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                id="frango-limao"
+                data-categoria="principais"
+                data-tempo="25"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/frango-limao.jpg"
+                    alt="Frango grelhado com limão"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>25</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Frango grelhado com limão</h3>
+                  <p>
+                    Filé suculento com tempero simples. Inclui 10 minutos de
+                    marinada.
+                  </p>
+                  <ul class="meta">
+                    <li>Média</li>
+                    <li>2 porções</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 filés de peito de frango</li>
+                        <li>Suco de 1 limão</li>
+                        <li>2 dentes de alho amassados</li>
+                        <li>Sal a gosto</li>
+                        <li>1 colher (sopa) de azeite</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Tempere o frango com limão, alho e sal e deixe
+                          descansar por 10 minutos.
+                        </li>
+                        <li>Aqueça a frigideira com o azeite em fogo médio.</li>
+                        <li>
+                          Grelhe de 5 a 6 minutos de cada lado, até dourar e não
+                          haver parte rosada por dentro.
+                        </li>
+                        <li>Deixe descansar 2 minutos antes de servir.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="category-block"
+        id="lanches"
+        aria-labelledby="lanches-titulo"
+      >
+        <div class="container">
+          <h2 id="lanches-titulo">Lanches</h2>
+          <ul class="cards">
+            <li class="card">
+              <article
+                id="sanduiche-natural"
+                data-categoria="lanches"
+                data-tempo="10"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/sanduiche-natural.jpg"
+                    alt="Sanduíche natural"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Sanduíche natural</h3>
+                  <p>Lanche frio e leve para levar na mochila.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>4 fatias de pão integral</li>
+                        <li>1 xícara de frango desfiado</li>
+                        <li>2 colheres (sopa) de requeijão</li>
+                        <li>1 cenoura pequena ralada</li>
+                        <li>Folhas de alface</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Misture o frango, o requeijão e a cenoura ralada.
+                        </li>
+                        <li>Espalhe o recheio em duas fatias de pão.</li>
+                        <li>Cubra com alface e feche com as outras fatias.</li>
+                        <li>Corte ao meio e sirva.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                id="quesadilla"
+                data-categoria="lanches"
+                data-tempo="10"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/quesadilla.jpg"
+                    alt="Quesadilla de queijo"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Quesadilla de queijo</h3>
+                  <p>Crocante por fora, queijo derretido por dentro.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 tortilhas ou massas de wrap</li>
+                        <li>1 xícara de queijo muçarela ralado</li>
+                        <li>2 colheres (sopa) de milho (opcional)</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Aqueça uma frigideira antiaderente em fogo médio.
+                        </li>
+                        <li>
+                          Coloque uma tortilha, espalhe o queijo e o milho.
+                        </li>
+                        <li>Cubra com a segunda tortilha.</li>
+                        <li>
+                          Doure cerca de 2 minutos de cada lado e corte em
+                          fatias.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="category-block"
+        id="sobremesas"
+        aria-labelledby="sobremesas-titulo"
+      >
+        <div class="container">
+          <h2 id="sobremesas-titulo">Sobremesas</h2>
+          <ul class="cards">
+            <li class="card">
+              <article
+                id="bolo-caneca"
+                data-categoria="sobremesas"
+                data-tempo="5"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/bolo-caneca.jpg"
+                    alt="Bolo de caneca de chocolate"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>5</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Bolo de caneca de chocolate</h3>
+                  <p>Sobremesa no micro-ondas, direto na caneca.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>4 colheres (sopa) de farinha de trigo</li>
+                        <li>3 colheres (sopa) de açúcar</li>
+                        <li>2 colheres (sopa) de chocolate em pó</li>
+                        <li>1 ovo</li>
+                        <li>3 colheres (sopa) de leite</li>
+                        <li>2 colheres (sopa) de óleo</li>
+                        <li>1 colher (chá) de fermento</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Em uma caneca grande, misture os ingredientes secos.
+                        </li>
+                        <li>
+                          Adicione o ovo, o leite e o óleo e mexa até ficar
+                          liso.
+                        </li>
+                        <li>
+                          Leve ao micro-ondas por cerca de 1 minuto e 30
+                          segundos. O tempo varia conforme o aparelho.
+                        </li>
+                        <li>Espere esfriar um pouco antes de comer.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                id="mousse-maracuja"
+                data-categoria="sobremesas"
+                data-tempo="10"
+                class="card-article"
+              >
+                <figure class="card-media">
+                  <img
+                    src="assets/images/mousse-maracuja.jpg"
+                    alt="Mousse de maracujá"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Mousse de maracujá</h3>
+                  <p>
+                    Três ingredientes no liquidificador. Precisa de 2 horas na
+                    geladeira.
+                  </p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>4 porções</li>
+                  </ul>
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>1 lata de leite condensado</li>
+                        <li>1 lata (medida da lata) de creme de leite</li>
+                        <li>1/2 xícara de suco concentrado de maracujá</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Bata todos os ingredientes no liquidificador por 1
+                          minuto.
+                        </li>
+                        <li>Distribua em taças ou copinhos.</li>
+                        <li>
+                          Leve à geladeira por pelo menos 2 horas antes de
+                          servir.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; 2026 Prato Rápido. Projeto escolar de [Seu nome completo].</p>
+        <nav
+          class="footer-nav"
+          aria-label="Rodapé"
+        >
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
