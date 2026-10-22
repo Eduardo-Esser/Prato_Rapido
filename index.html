@@ -6,29 +6,234 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Projeto HTML e CSS</title>
-    <link
-      rel="stylesheet"
-      href="./css/reset.css"
+    <title>Prato Rápido — receitas simples para quem tem pouco tempo</title>
+    <meta
+      name="description"
+      content="Receitas simples e rápidas para quem está começando a cozinhar. Veja o tempo de preparo logo de cara."
     />
-
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
-      href="./css/global.css"
+      href="/css/global.css"
     />
   </head>
-
   <body>
-    <header>
-      <h1>Projeto HTML e CSS</h1>
+    <a
+      class="skip-link"
+      href="#conteudo"
+      >Pular para o conteúdo</a
+    >
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          href="index.html"
+          class="logo"
+          >Prato Rápido</a
+        >
+        <nav
+          class="main-nav"
+          aria-label="Principal"
+        >
+          <ul>
+            <li>
+              <a
+                href="index.html"
+                aria-current="page"
+                >Início</a
+              >
+            </li>
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <p>Substitua este conteúdo pelo conteúdo do seu projeto.</p>
+    <main id="conteudo">
+      <section
+        class="hero"
+        aria-labelledby="hero-titulo"
+      >
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1 id="hero-titulo">
+              Receitas simples para quem tem pouco tempo e muita fome
+            </h1>
+            <p>
+              Cada receita mostra o tempo de preparo logo de cara. Escolha, abra
+              e cozinhe.
+            </p>
+            <a
+              class="btn"
+              href="receitas.html"
+              >Ver todas as receitas</a
+            >
+          </div>
+          <div class="hero-media">
+            <img
+              src="img/hero.webp"
+              alt="Mesa com pratos simples e coloridos, prontos para servir"
+              width="1200"
+              height="900"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section band"
+        aria-labelledby="destaques-titulo"
+      >
+        <div class="container">
+          <h2 id="destaques-titulo">Receitas em destaque</h2>
+          <p class="section-intro">
+            Três jeitos de resolver a fome em poucos minutos.
+          </p>
+          <ul class="cards">
+            <li class="card">
+              <article class="card-article">
+                <figure class="card-media">
+                  <img
+                    src="img/ovos.jpeg"
+                    alt="Ovos mexidos cremosos"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>8</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>
+                    <a href="receitas.html#ovos-mexidos"
+                      >Ovos mexidos cremosos</a
+                    >
+                  </h3>
+                  <p>O segredo é o fogo baixo e mexer devagar.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article class="card-article">
+                <figure class="card-media">
+                  <img
+                    src="img/macarrao.jpg"
+                    alt="Macarrão alho e óleo"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>20</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>
+                    <a href="receitas.html#macarrao-alho-oleo"
+                      >Macarrão alho e óleo</a
+                    >
+                  </h3>
+                  <p>
+                    O clássico de geladeira vazia, pronto no tempo de ferver a
+                    água.
+                  </p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article class="card-article">
+                <figure class="card-media">
+                  <img
+                    src="img/bolo.webp"
+                    alt="Bolo de caneca de chocolate"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <figcaption class="badge"><strong>5</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>
+                    <a href="receitas.html#bolo-caneca"
+                      >Bolo de caneca de chocolate</a
+                    >
+                  </h3>
+                  <p>Sobremesa no micro-ondas, direto na caneca.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        aria-labelledby="categorias-titulo"
+      >
+        <div class="container">
+          <h2 id="categorias-titulo">Escolha por categoria</h2>
+          <ul class="chips">
+            <li><a href="receitas.html#cafe">Café da manhã</a></li>
+            <li><a href="receitas.html#principais">Pratos principais</a></li>
+            <li><a href="receitas.html#lanches">Lanches</a></li>
+            <li><a href="receitas.html#sobremesas">Sobremesas</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="container tip-wrap">
+        <aside
+          class="tip"
+          aria-labelledby="dica-titulo"
+        >
+          <h2 id="dica-titulo">Dica rápida</h2>
+          <p>
+            Leia a receita inteira antes de começar e separe todos os
+            ingredientes na bancada. Cozinhar fica bem mais fácil e rápido
+            assim.
+          </p>
+        </aside>
+      </div>
     </main>
 
-    <footer>
-      <p>Desenvolvido durante as aulas de Desenvolvimento Web.</p>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; 2026 Prato Rápido. Projeto escolar de [Seu nome completo].</p>
+        <nav
+          class="footer-nav"
+          aria-label="Rodapé"
+        >
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="receitas.html">Receitas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
