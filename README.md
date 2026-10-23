@@ -108,7 +108,7 @@ dependências nem etapa de instalação.
 
 ## Link da aplicação publicada
 
-[Preencher com o link do GitHub Pages]
+[https://eduardo-esser.github.io/Prato_Rapido/index.html]
 
 ## Capturas de tela
 
@@ -149,7 +149,7 @@ Os materiais didáticos de HTML e CSS estão disponíveis no repositório
 
 ## Autoria
 
-Projeto desenvolvido por **[Seu nome completo]** durante as atividades de
+Projeto desenvolvido por **[Eduardo Esser]** durante as atividades de
 Desenvolvimento Web I.
 
 Template elaborado pelo
