@@ -1,27 +1,4 @@
-/* ===========================================================
-   PRATO RÁPIDO — global.css (Versão 1: HTML + CSS)
-   Layouts feitos com Flexbox.
-   =========================================================== */
-
-/* ---------- 1. Tokens ---------- */
-:root {
-  --leaf: #16301f; /* texto e rodapé */
-  --leaf-soft: #44564a; /* texto secundário */
-  --tomato: #c8321f; /* ações (contraste 5,3:1 com branco) */
-  --tomato-dark: #a82616;
-  --lemon: #ffd84d; /* selo de tempo e dica */
-  --sage: #e8f0e4; /* faixas de fundo */
-  --sage-line: #cfddc9; /* bordas */
-  --white: #ffffff;
-
-  --font-display: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-
-  --radius-lg: 28px;
-  --radius-md: 16px;
-  --gap: 24px;
-  --max: 1100px;
-}
+/* ---------- 1. Cores e tipografia (valores diretos) ---------- */
 
 /* ---------- 2. Base ---------- */
 *,
@@ -32,11 +9,11 @@
 
 body {
   margin: 0;
-  font-family: var(--font-body);
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 1.0625rem;
   line-height: 1.6;
-  color: var(--leaf);
-  background: var(--white);
+  color: #16301f;
+  background: #ffffff;
 }
 
 img {
@@ -60,7 +37,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--font-display);
+  font-family: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin: 0 0 0.5em;
@@ -87,21 +64,21 @@ h4 {
 }
 
 a {
-  color: var(--tomato);
+  color: #c8321f;
   text-underline-offset: 3px;
 }
 a:hover {
-  color: var(--tomato-dark);
+  color: #a82616;
 }
 
 :focus-visible {
-  outline: 3px solid var(--tomato);
+  outline: 3px solid #c8321f;
   outline-offset: 3px;
   border-radius: 4px;
 }
 
 .container {
-  width: min(100% - 48px, var(--max));
+  width: min(100% - 48px, 1100px);
   margin-inline: auto;
 }
 
@@ -109,21 +86,21 @@ a:hover {
   position: absolute;
   left: 16px;
   top: -80px;
-  background: var(--leaf);
-  color: var(--white);
+  background: #16301f;
+  color: #ffffff;
   padding: 10px 16px;
-  border-radius: var(--radius-md);
+  border-radius: 16px;
   z-index: 100;
 }
 .skip-link:focus {
   top: 12px;
-  color: var(--white);
+  color: #ffffff;
 }
 
 /* ---------- 3. Cabeçalho e menu (Flexbox) ---------- */
 .site-header {
-  background: var(--white);
-  border-bottom: 2px solid var(--sage-line);
+  background: #ffffff;
+  border-bottom: 2px solid #cfddc9;
 }
 .header-inner {
   display: flex;
@@ -137,11 +114,11 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-display);
+  font-family: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   letter-spacing: -0.03em;
-  color: var(--leaf);
+  color: #16301f;
   text-decoration: none;
 }
 .logo::before {
@@ -149,11 +126,11 @@ a:hover {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--tomato);
-  box-shadow: inset 0 0 0 6px var(--lemon);
+  background: #c8321f;
+  box-shadow: inset 0 0 0 6px #ffd84d;
 }
 .logo:hover {
-  color: var(--leaf);
+  color: #16301f;
 }
 
 .main-nav ul {
@@ -167,27 +144,27 @@ a:hover {
   padding: 8px 18px;
   border-radius: 999px;
   font-weight: 700;
-  color: var(--leaf);
+  color: #16301f;
   text-decoration: none;
   transition: background-color 0.15s ease;
 }
 .main-nav a:hover {
-  background: var(--sage);
-  color: var(--leaf);
+  background: #e8f0e4;
+  color: #16301f;
 }
 .main-nav a[aria-current='page'] {
-  background: var(--lemon);
+  background: #ffd84d;
 }
 
 /* ---------- 4. Botões ---------- */
 .btn {
   display: inline-block;
   padding: 14px 28px;
-  border: 2px solid var(--tomato);
+  border: 2px solid #c8321f;
   border-radius: 999px;
-  background: var(--tomato);
-  color: var(--white);
-  font-family: var(--font-body);
+  background: #c8321f;
+  color: #ffffff;
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
@@ -197,9 +174,9 @@ a:hover {
     border-color 0.15s ease;
 }
 .btn:hover {
-  background: var(--tomato-dark);
-  border-color: var(--tomato-dark);
-  color: var(--white);
+  background: #a82616;
+  border-color: #a82616;
+  color: #ffffff;
 }
 
 /* ---------- 5. Hero ---------- */
@@ -216,7 +193,7 @@ a:hover {
 }
 .hero-text p {
   max-width: 38ch;
-  color: var(--leaf-soft);
+  color: #44564a;
   font-size: 1.2rem;
 }
 .hero-media {
@@ -226,8 +203,8 @@ a:hover {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: var(--radius-lg);
-  background: var(--sage);
+  border-radius: 28px;
+  background: #e8f0e4;
 }
 
 /* ---------- 6. Seções ---------- */
@@ -235,11 +212,11 @@ a:hover {
   padding-block: 64px;
 }
 .band {
-  background: var(--sage);
+  background: #e8f0e4;
 }
 .section-intro {
   max-width: 56ch;
-  color: var(--leaf-soft);
+  color: #44564a;
   margin-bottom: 40px;
 }
 
@@ -248,7 +225,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 48px var(--gap);
+  gap: 48px 24px;
   list-style: none;
 }
 .card {
@@ -256,9 +233,9 @@ a:hover {
   max-width: 520px;
   display: flex;
   flex-direction: column;
-  background: var(--white);
-  border: 2px solid var(--sage-line);
-  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 2px solid #cfddc9;
+  border-radius: 28px;
 }
 .card-media {
   position: relative;
@@ -267,8 +244,8 @@ a:hover {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0;
-  background: var(--sage);
+  border-radius: calc(28px - 2px) calc(28px - 2px) 0 0;
+  background: #e8f0e4;
 }
 
 /* selo de tempo: elemento de assinatura do portal */
@@ -283,15 +260,15 @@ a:hover {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--lemon);
-  border: 3px solid var(--white);
-  color: var(--leaf);
+  background: #ffd84d;
+  border: 3px solid #ffffff;
+  color: #16301f;
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
 }
 .badge strong {
-  font-family: var(--font-display);
+  font-family: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
   font-size: 1.7rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -307,15 +284,15 @@ a:hover {
   margin-bottom: 0.3em;
 }
 .card-body h3 a {
-  color: var(--leaf);
+  color: #16301f;
   text-decoration: none;
 }
 .card-body h3 a:hover {
-  color: var(--tomato);
+  color: #c8321f;
   text-decoration: underline;
 }
 .card-body > p {
-  color: var(--leaf-soft);
+  color: #44564a;
 }
 
 .meta {
@@ -328,7 +305,7 @@ a:hover {
 .meta li {
   padding: 4px 12px;
   border-radius: 999px;
-  background: var(--sage);
+  background: #e8f0e4;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -340,7 +317,7 @@ details {
 summary {
   display: inline-block;
   padding: 10px 20px;
-  border: 2px solid var(--leaf);
+  border: 2px solid #16301f;
   border-radius: 999px;
   font-weight: 700;
   cursor: pointer;
@@ -351,14 +328,14 @@ summary::-webkit-details-marker {
   display: none;
 }
 summary:hover {
-  background: var(--lemon);
+  background: #ffd84d;
 }
 details[open] summary {
-  background: var(--leaf);
-  color: var(--white);
+  background: #16301f;
+  color: #ffffff;
 }
 details[open] summary:hover {
-  background: var(--leaf);
+  background: #16301f;
 }
 .recipe-steps {
   padding-top: 20px;
@@ -372,7 +349,7 @@ details[open] summary:hover {
   margin-bottom: 6px;
 }
 .recipe-steps li::marker {
-  color: var(--tomato);
+  color: #c8321f;
   font-weight: 700;
 }
 
@@ -386,17 +363,17 @@ details[open] summary:hover {
 .chips a {
   display: block;
   padding: 14px 26px;
-  border: 2px solid var(--leaf);
+  border: 2px solid #16301f;
   border-radius: 999px;
-  background: var(--white);
-  color: var(--leaf);
+  background: #ffffff;
+  color: #16301f;
   font-weight: 700;
   text-decoration: none;
   transition: background-color 0.15s ease;
 }
 .chips a:hover {
-  background: var(--lemon);
-  color: var(--leaf);
+  background: #ffd84d;
+  color: #16301f;
 }
 
 /* ---------- 9. Dica rápida (aside) ---------- */
@@ -405,8 +382,8 @@ details[open] summary:hover {
   align-items: center;
   gap: 24px;
   padding: 32px;
-  border-radius: var(--radius-lg);
-  background: var(--lemon);
+  border-radius: 28px;
+  background: #ffd84d;
 }
 .tip h2 {
   font-size: 1.5rem;
@@ -425,7 +402,7 @@ details[open] summary:hover {
 }
 .page-head p {
   max-width: 56ch;
-  color: var(--leaf-soft);
+  color: #44564a;
   font-size: 1.15rem;
 }
 .category-nav {
@@ -435,7 +412,7 @@ details[open] summary:hover {
   padding-block: 40px;
 }
 .category-block + .category-block {
-  border-top: 2px solid var(--sage-line);
+  border-top: 2px solid #cfddc9;
 }
 .category-block h2 {
   margin-bottom: 32px;
@@ -453,9 +430,9 @@ details[open] summary:hover {
 .about-box {
   flex: 1 1 32%;
   padding: 28px;
-  border: 2px solid var(--sage-line);
-  border-radius: var(--radius-lg);
-  background: var(--sage);
+  border: 2px solid #cfddc9;
+  border-radius: 28px;
+  background: #e8f0e4;
 }
 .about-box p:last-child {
   margin-bottom: 0;
@@ -480,12 +457,12 @@ details[open] summary:hover {
 .field textarea {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid var(--sage-line);
-  border-radius: var(--radius-md);
-  background: var(--white);
-  font-family: var(--font-body);
+  border: 2px solid #cfddc9;
+  border-radius: 16px;
+  background: #ffffff;
+  font-family: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 1rem;
-  color: var(--leaf);
+  color: #16301f;
 }
 .field textarea {
   min-height: 150px;
@@ -494,17 +471,17 @@ details[open] summary:hover {
 .field input:hover,
 .field select:hover,
 .field textarea:hover {
-  border-color: var(--leaf-soft);
+  border-color: #44564a;
 }
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  outline: 3px solid var(--lemon);
-  border-color: var(--leaf);
+  outline: 3px solid #ffd84d;
+  border-color: #16301f;
 }
 .field-hint {
   font-size: 0.9rem;
-  color: var(--leaf-soft);
+  color: #44564a;
 }
 .radio-group {
   display: flex;
@@ -520,13 +497,13 @@ details[open] summary:hover {
 .radio-group input {
   width: 20px;
   height: 20px;
-  accent-color: var(--tomato);
+  accent-color: #c8321f;
 }
 
 /* ---------- 12. Rodapé ---------- */
 .site-footer {
-  background: var(--leaf);
-  color: var(--white);
+  background: #16301f;
+  color: #ffffff;
   padding-block: 40px;
 }
 .footer-inner {
@@ -546,14 +523,14 @@ details[open] summary:hover {
   list-style: none;
 }
 .site-footer a {
-  color: var(--white);
+  color: #ffffff;
   text-underline-offset: 3px;
 }
 .site-footer a:hover {
-  color: var(--lemon);
+  color: #ffd84d;
 }
 .site-footer :focus-visible {
-  outline-color: var(--lemon);
+  outline-color: #ffd84d;
 }
 
 /* ---------- 13. Responsivo ---------- */
@@ -579,7 +556,7 @@ details[open] summary:hover {
     font-size: 1rem;
   }
   .container {
-    width: min(100% - 32px, var(--max));
+    width: min(100% - 32px, 1100px);
   }
   .hero {
     padding-block: 32px 48px;
