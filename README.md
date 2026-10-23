@@ -18,7 +18,7 @@ filtros e formulários.
 
 ## Objetivo
 
-Reunir receitas simples, organizadas por categoria, para que o visitante
+Reunir receitas simples, organizadas por categoria, para que o usuário
 encontre rapidamente o que preparar e consiga fazer a receita do início ao fim.
 
 ## Público-alvo
@@ -51,7 +51,6 @@ Os wireframes de cada página (desktop) e da versão mobile estão no diretório
 - [Início](./docs/wireframe-index.png);
 - [Receitas](./docs/wireframe-receitas.png);
 - [Contato](./docs/wireframe-contato.png);
-- [Mobile](./docs/wireframe-mobile.png).
 
 ## Funcionalidades planejadas para a Versão 2
 
@@ -112,8 +111,10 @@ dependências nem etapa de instalação.
 
 ## Capturas de tela
 
-[Adicionar as capturas da página inicial, de receitas e de contato, em desktop e
-celular]
+- [Início](./docs/captura_index.jpeg);
+- [Receitas](./docs/captura_receita.jpeg);
+- [Receitas](./docs/captura_receita_2.jpeg);
+- [Contato](./docs/captura_contato.jpeg);
 
 ## Documentação
 
