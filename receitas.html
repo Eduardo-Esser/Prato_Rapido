@@ -70,25 +70,107 @@
         <div class="container">
           <h1 id="receitas-titulo">Todas as receitas</h1>
           <p>
-            Do café da manhã à sobremesa. Abra “Ver ingredientes e preparo” para
-            cozinhar.
+            Do café da manhã à sobremesa. Favorite, avalie, anote e marque o que
+            funcionou para você.
           </p>
         </div>
       </section>
 
-      <nav
-        class="category-nav"
-        aria-label="Categorias de receitas"
+      <section
+        class="toolbar-wrap"
+        aria-label="Filtros de receitas"
       >
-        <div class="container">
-          <ul class="chips">
-            <li><a href="#cafe">Café da manhã</a></li>
-            <li><a href="#principais">Pratos principais</a></li>
-            <li><a href="#lanches">Lanches</a></li>
-            <li><a href="#sobremesas">Sobremesas</a></li>
-          </ul>
+        <div class="container toolbar">
+          <div class="search-field">
+            <label
+              for="busca"
+              class="visually-hidden"
+              >Buscar receita</label
+            >
+            <input
+              type="search"
+              id="busca"
+              placeholder="Buscar receita (ex: ovo)"
+              autocomplete="off"
+            />
+          </div>
+          <div
+            class="chip-group"
+            role="group"
+            aria-label="Filtrar receitas"
+          >
+            <button
+              type="button"
+              class="chip"
+              data-filtro="todas"
+              aria-pressed="true"
+            >
+              Todas
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filtro="cafe"
+              aria-pressed="false"
+            >
+              Café da manhã
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filtro="principais"
+              aria-pressed="false"
+            >
+              Pratos principais
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filtro="lanches"
+              aria-pressed="false"
+            >
+              Lanches
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filtro="sobremesas"
+              aria-pressed="false"
+            >
+              Sobremesas
+            </button>
+            <button
+              type="button"
+              class="chip chip-toggle"
+              data-toggle="favoritas"
+              aria-pressed="false"
+            >
+              ♥ Favoritas
+            </button>
+            <button
+              type="button"
+              class="chip chip-toggle"
+              data-toggle="usei"
+              aria-pressed="false"
+            >
+              ✓ Funcionou pra mim
+            </button>
+          </div>
+          <p
+            class="indicador"
+            id="indicador"
+            role="status"
+          ></p>
         </div>
-      </nav>
+      </section>
+
+      <p
+        class="empty-msg container"
+        id="vazio"
+        hidden
+      >
+        Nenhuma receita encontrada. Tente outra busca ou limpe os filtros.
+      </p>
 
       <section
         class="category-block"
@@ -100,10 +182,10 @@
           <ul class="cards">
             <li class="card">
               <article
+                class="card-article recipe"
                 id="panqueca-banana"
                 data-categoria="cafe"
                 data-tempo="10"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -113,6 +195,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Panqueca de banana"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>10</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -125,6 +216,103 @@
                     <li>Fácil</li>
                     <li>2 porções</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Panqueca de banana"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-panqueca-banana-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-panqueca-banana-painel"
+                    hidden
+                  >
+                    <label for="nota-panqueca-banana"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-panqueca-banana"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -154,10 +342,10 @@
 
             <li class="card">
               <article
+                class="card-article recipe"
                 id="ovos-mexidos"
                 data-categoria="cafe"
                 data-tempo="8"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -167,6 +355,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Ovos mexidos cremosos"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>8</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -176,6 +373,103 @@
                     <li>Fácil</li>
                     <li>1 porção</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Ovos mexidos cremosos"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-ovos-mexidos-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-ovos-mexidos-painel"
+                    hidden
+                  >
+                    <label for="nota-ovos-mexidos"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-ovos-mexidos"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -203,6 +497,324 @@
                 </div>
               </article>
             </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="torrada-abacate"
+                data-categoria="cafe"
+                data-tempo="5"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/abacate.webp"
+                    alt="Torrada de abacate"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Torrada de abacate"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>5</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Torrada de abacate</h3>
+                  <p>Cremosa, crocante e pronta antes do café esfriar.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Torrada de abacate"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-torrada-abacate-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-torrada-abacate-painel"
+                    hidden
+                  >
+                    <label for="nota-torrada-abacate"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-torrada-abacate"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 fatias de pão</li>
+                        <li>1/2 abacate maduro</li>
+                        <li>Suco de 1/2 limão</li>
+                        <li>Sal e pimenta-do-reino a gosto</li>
+                        <li>Azeite (opcional)</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Toste as fatias de pão.</li>
+                        <li>
+                          Amasse o abacate com o limão, o sal e a pimenta.
+                        </li>
+                        <li>Espalhe sobre as torradas.</li>
+                        <li>Finalize com um fio de azeite.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="tapioca-queijo"
+                data-categoria="cafe"
+                data-tempo="10"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/tapioca.jpg"
+                    alt="Tapioca de queijo"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Tapioca de queijo"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Tapioca de queijo</h3>
+                  <p>Massa de goma, queijo derretido e só uma frigideira.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Tapioca de queijo"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-tapioca-queijo-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-tapioca-queijo-painel"
+                    hidden
+                  >
+                    <label for="nota-tapioca-queijo"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-tapioca-queijo"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>4 colheres (sopa) de goma de tapioca hidratada</li>
+                        <li>
+                          3 colheres (sopa) de queijo ralado ou 2 fatias de
+                          queijo
+                        </li>
+                        <li>1 pitada de sal</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Aqueça uma frigideira antiaderente em fogo médio.
+                        </li>
+                        <li>Espalhe a goma formando um disco fino.</li>
+                        <li>
+                          Quando firmar e soltar do fundo (cerca de 1 minuto),
+                          coloque o queijo em uma metade.
+                        </li>
+                        <li>
+                          Dobre ao meio e deixe 1 minuto para o queijo derreter.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
           </ul>
         </div>
       </section>
@@ -217,10 +829,10 @@
           <ul class="cards">
             <li class="card">
               <article
+                class="card-article recipe"
                 id="macarrao-alho-oleo"
                 data-categoria="principais"
                 data-tempo="20"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -230,6 +842,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Macarrão alho e óleo"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>20</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -242,6 +863,103 @@
                     <li>Fácil</li>
                     <li>2 porções</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Macarrão alho e óleo"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-macarrao-alho-oleo-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-macarrao-alho-oleo-painel"
+                    hidden
+                  >
+                    <label for="nota-macarrao-alho-oleo"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-macarrao-alho-oleo"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -279,10 +997,10 @@
 
             <li class="card">
               <article
+                class="card-article recipe"
                 id="frango-limao"
                 data-categoria="principais"
                 data-tempo="25"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -292,6 +1010,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Frango grelhado com limão"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>25</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -304,6 +1031,103 @@
                     <li>Média</li>
                     <li>2 porções</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Frango grelhado com limão"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-frango-limao-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-frango-limao-painel"
+                    hidden
+                  >
+                    <label for="nota-frango-limao"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-frango-limao"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -333,6 +1157,319 @@
                 </div>
               </article>
             </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="omelete-queijo-tomate"
+                data-categoria="principais"
+                data-tempo="10"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/omelete.jpg"
+                    alt="Omelete de queijo e tomate"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Omelete de queijo e tomate"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Omelete de queijo e tomate</h3>
+                  <p>Proteína, queijo derretido e um toque fresco de tomate.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Omelete de queijo e tomate"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-omelete-queijo-tomate-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-omelete-queijo-tomate-painel"
+                    hidden
+                  >
+                    <label for="nota-omelete-queijo-tomate"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-omelete-queijo-tomate"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 ovos</li>
+                        <li>1/2 tomate em cubos pequenos</li>
+                        <li>3 colheres (sopa) de queijo ralado</li>
+                        <li>Sal a gosto</li>
+                        <li>1 colher (chá) de óleo ou manteiga</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Bata os ovos com uma pitada de sal.</li>
+                        <li>Aqueça a frigideira untada em fogo médio.</li>
+                        <li>
+                          Despeje os ovos e, quando as bordas firmarem, coloque
+                          o queijo e o tomate em uma metade.
+                        </li>
+                        <li>Dobre ao meio e deixe mais 1 minuto.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="salada-grao-de-bico"
+                data-categoria="principais"
+                data-tempo="10"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/salada.jpg"
+                    alt="Salada de grão-de-bico"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Salada de grão-de-bico"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Salada de grão-de-bico</h3>
+                  <p>Refeição fresca de despensa, sem usar o fogão.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Salada de grão-de-bico"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-salada-grao-de-bico-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-salada-grao-de-bico-painel"
+                    hidden
+                  >
+                    <label for="nota-salada-grao-de-bico"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-salada-grao-de-bico"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>1 lata (cerca de 300 g) de grão-de-bico</li>
+                        <li>1 tomate em cubos</li>
+                        <li>1/2 pepino em cubos</li>
+                        <li>1/4 de cebola roxa em fatias finas</li>
+                        <li>Suco de 1/2 limão</li>
+                        <li>2 colheres (sopa) de azeite</li>
+                        <li>Sal e salsinha a gosto</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Escorra e lave o grão-de-bico.</li>
+                        <li>Misture com o tomate, o pepino e a cebola.</li>
+                        <li>Tempere com limão, azeite e sal.</li>
+                        <li>Finalize com salsinha.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
           </ul>
         </div>
       </section>
@@ -347,10 +1484,10 @@
           <ul class="cards">
             <li class="card">
               <article
+                class="card-article recipe"
                 id="sanduiche-natural"
                 data-categoria="lanches"
                 data-tempo="10"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -360,6 +1497,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Sanduíche natural"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>10</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -369,6 +1515,103 @@
                     <li>Fácil</li>
                     <li>2 porções</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Sanduíche natural"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-sanduiche-natural-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-sanduiche-natural-painel"
+                    hidden
+                  >
+                    <label for="nota-sanduiche-natural"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-sanduiche-natural"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -397,10 +1640,10 @@
 
             <li class="card">
               <article
+                class="card-article recipe"
                 id="quesadilla"
                 data-categoria="lanches"
                 data-tempo="10"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -410,6 +1653,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Quesadilla de queijo"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>10</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -419,6 +1671,103 @@
                     <li>Fácil</li>
                     <li>1 porção</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Quesadilla de queijo"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-quesadilla-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-quesadilla-painel"
+                    hidden
+                  >
+                    <label for="nota-quesadilla"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-quesadilla"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -447,6 +1796,325 @@
                 </div>
               </article>
             </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="misto-quente"
+                data-categoria="lanches"
+                data-tempo="8"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/misto.jpg"
+                    alt="Misto quente na frigideira"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Misto quente na frigideira"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>8</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Misto quente na frigideira</h3>
+                  <p>
+                    Queijo derretido e pão dourado, sem precisar de
+                    sanduicheira.
+                  </p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Misto quente na frigideira"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-misto-quente-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-misto-quente-painel"
+                    hidden
+                  >
+                    <label for="nota-misto-quente"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-misto-quente"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 fatias de pão de forma</li>
+                        <li>2 fatias de queijo</li>
+                        <li>1 fatia de presunto</li>
+                        <li>1 colher (chá) de manteiga</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Monte o sanduíche com queijo, presunto e mais uma
+                          fatia de queijo.
+                        </li>
+                        <li>Passe um pouco de manteiga por fora do pão.</li>
+                        <li>
+                          Doure na frigideira em fogo médio-baixo, de 2 a 3
+                          minutos de cada lado, até o queijo derreter.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="wrap-frango"
+                data-categoria="lanches"
+                data-tempo="10"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/wrap.webp"
+                    alt="Wrap de frango"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Wrap de frango"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Wrap de frango</h3>
+                  <p>Recheio cremoso e fresco, enrolado em poucos minutos.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>2 porções</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Wrap de frango"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-wrap-frango-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-wrap-frango-painel"
+                    hidden
+                  >
+                    <label for="nota-wrap-frango"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-wrap-frango"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>2 tortilhas</li>
+                        <li>1 xícara de frango desfiado</li>
+                        <li>
+                          2 colheres (sopa) de iogurte natural ou requeijão
+                        </li>
+                        <li>Folhas de alface</li>
+                        <li>1/2 tomate em fatias</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>
+                          Misture o frango com o iogurte (ou o requeijão).
+                        </li>
+                        <li>Espalhe sobre as tortilhas.</li>
+                        <li>Adicione a alface e o tomate.</li>
+                        <li>Enrole bem e corte ao meio.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
           </ul>
         </div>
       </section>
@@ -461,10 +2129,10 @@
           <ul class="cards">
             <li class="card">
               <article
+                class="card-article recipe"
                 id="bolo-caneca"
                 data-categoria="sobremesas"
                 data-tempo="5"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -474,6 +2142,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Bolo de caneca de chocolate"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>5</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -483,6 +2160,103 @@
                     <li>Fácil</li>
                     <li>1 porção</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Bolo de caneca de chocolate"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-bolo-caneca-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-bolo-caneca-painel"
+                    hidden
+                  >
+                    <label for="nota-bolo-caneca"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-bolo-caneca"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -519,10 +2293,10 @@
 
             <li class="card">
               <article
+                class="card-article recipe"
                 id="mousse-maracuja"
                 data-categoria="sobremesas"
                 data-tempo="10"
-                class="card-article"
               >
                 <figure class="card-media">
                   <img
@@ -532,6 +2306,15 @@
                     height="600"
                     loading="lazy"
                   />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Mousse de maracujá"
+                  >
+                    ♡
+                  </button>
                   <figcaption class="badge"><strong>10</strong> min</figcaption>
                 </figure>
                 <div class="card-body">
@@ -544,6 +2327,103 @@
                     <li>Fácil</li>
                     <li>4 porções</li>
                   </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Mousse de maracujá"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-mousse-maracuja-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-mousse-maracuja-painel"
+                    hidden
+                  >
+                    <label for="nota-mousse-maracuja"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-mousse-maracuja"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
                   <details>
                     <summary>Ver ingredientes e preparo</summary>
                     <div class="recipe-steps">
@@ -563,6 +2443,321 @@
                         <li>
                           Leve à geladeira por pelo menos 2 horas antes de
                           servir.
+                        </li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="brigadeiro-colher"
+                data-categoria="sobremesas"
+                data-tempo="15"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/brigadeiro.jpg"
+                    alt="Brigadeiro de colher"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Brigadeiro de colher"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>15</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Brigadeiro de colher</h3>
+                  <p>O doce de festa, servido no copinho e sem enrolar.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>4 porções</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Brigadeiro de colher"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-brigadeiro-colher-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-brigadeiro-colher-painel"
+                    hidden
+                  >
+                    <label for="nota-brigadeiro-colher"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-brigadeiro-colher"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>1 lata de leite condensado</li>
+                        <li>1 caixinha (200 g) de creme de leite</li>
+                        <li>3 colheres (sopa) de chocolate em pó</li>
+                        <li>1 colher (sopa) de manteiga</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Misture todos os ingredientes em uma panela.</li>
+                        <li>Cozinhe em fogo baixo, mexendo sem parar.</li>
+                        <li>
+                          Desligue quando o fundo da panela aparecer ao passar a
+                          colher (cerca de 8 a 10 minutos).
+                        </li>
+                        <li>Sirva em copinhos, morno ou gelado.</li>
+                      </ol>
+                    </div>
+                  </details>
+                </div>
+              </article>
+            </li>
+
+            <li class="card">
+              <article
+                class="card-article recipe"
+                id="banana-canela"
+                data-categoria="sobremesas"
+                data-tempo="10"
+              >
+                <figure class="card-media">
+                  <img
+                    src="img/banana.png"
+                    alt="Banana com canela"
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    class="fav-btn"
+                    data-acao="favoritar"
+                    aria-pressed="false"
+                    aria-label="Favoritar Banana com canela"
+                  >
+                    ♡
+                  </button>
+                  <figcaption class="badge"><strong>10</strong> min</figcaption>
+                </figure>
+                <div class="card-body">
+                  <h3>Banana com canela</h3>
+                  <p>Banana dourada na frigideira com um toque de canela.</p>
+                  <ul class="meta">
+                    <li>Fácil</li>
+                    <li>1 porção</li>
+                  </ul>
+
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="used-btn"
+                      data-acao="usei"
+                      aria-pressed="false"
+                    >
+                      Funcionou pra mim
+                    </button>
+                    <div
+                      class="stars"
+                      role="group"
+                      aria-label="Avaliar Banana com canela"
+                    >
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="1"
+                        aria-pressed="false"
+                        aria-label="1 estrela"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="2"
+                        aria-pressed="false"
+                        aria-label="2 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="3"
+                        aria-pressed="false"
+                        aria-label="3 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="4"
+                        aria-pressed="false"
+                        aria-label="4 estrelas"
+                      >
+                        ☆
+                      </button>
+                      <button
+                        type="button"
+                        class="star"
+                        data-acao="estrela"
+                        data-valor="5"
+                        aria-pressed="false"
+                        aria-label="5 estrelas"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="note-toggle"
+                    data-acao="nota"
+                    aria-expanded="false"
+                    aria-controls="nota-banana-canela-painel"
+                  >
+                    Adicionar nota
+                  </button>
+                  <div
+                    class="note-panel"
+                    id="nota-banana-canela-painel"
+                    hidden
+                  >
+                    <label for="nota-banana-canela"
+                      >Sua nota sobre esta receita</label
+                    >
+                    <textarea
+                      id="nota-banana-canela"
+                      maxlength="300"
+                      rows="3"
+                      placeholder="Ex.: usei menos açúcar e ficou ótimo"
+                    ></textarea>
+                    <span
+                      class="note-status"
+                      role="status"
+                    ></span>
+                  </div>
+
+                  <details>
+                    <summary>Ver ingredientes e preparo</summary>
+                    <div class="recipe-steps">
+                      <h4>Ingredientes</h4>
+                      <ul>
+                        <li>1 banana madura</li>
+                        <li>1 colher (chá) de manteiga</li>
+                        <li>1 colher (chá) de açúcar ou mel</li>
+                        <li>1 pitada de canela</li>
+                      </ul>
+                      <h4>Modo de preparo</h4>
+                      <ol>
+                        <li>Corte a banana ao meio, no comprimento.</li>
+                        <li>Derreta a manteiga em fogo médio.</li>
+                        <li>
+                          Coloque a banana com o lado cortado para baixo e doure
+                          por 2 minutos.
+                        </li>
+                        <li>
+                          Vire, polvilhe o açúcar e a canela e deixe mais 1
+                          minuto.
                         </li>
                       </ol>
                     </div>
@@ -590,5 +2785,10 @@
         </nav>
       </div>
     </footer>
+
+    <script
+      src="script.js"
+      defer
+    ></script>
   </body>
 </html>
